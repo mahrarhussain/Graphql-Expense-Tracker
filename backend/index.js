@@ -73,4 +73,3 @@ await new Promise((resolve) => httpServer.listen({ port: 4000 }, resolve));
 await connectDB();
 
 console.log(`Server ready at 4000 `);
-console.log(`ENV :${process.env}`);
