@@ -1,5 +1,6 @@
 import { users } from "../dummyData/data.js";
 import User from "../model/user.model.js";
+import bcrypt from "bcryptjs";
 
 const userResolver = {
   Query: {
@@ -31,6 +32,7 @@ const userResolver = {
       try {
         const { username, name, password, gender } = input;
 
+        console.log("conte", context);
         if (!username || !name || !password || !gender) {
           throw new Error("All fields are required");
         }
