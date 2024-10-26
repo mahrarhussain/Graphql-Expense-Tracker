@@ -14,9 +14,14 @@ import { buildContext } from "graphql-passport";
 
 import mergedResolvers from "./resolvers/index.js";
 import mergedTypeDefs from "./typeDefs/index.js";
+
 import { connectDB } from "./db/connectDB.js";
+import { configurePassport } from "./passport/passport.config.js";
+
 
 dotenv.config();
+configurePassport();
+
 const app = express();
 
 const env = app.get("env");
@@ -47,6 +52,7 @@ app.use(
 
 app.use(passport.initialize());
 app.use(passport.session());
+
 const server = new ApolloServer({
   typeDefs: mergedTypeDefs,
   resolvers: mergedResolvers,
