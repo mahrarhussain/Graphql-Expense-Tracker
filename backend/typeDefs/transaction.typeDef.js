@@ -2,13 +2,13 @@ const transactionTypeDef = `#graphql
   type Transaction {
     _id: ID!
     userId: ID!
+    user: User!
     description: String!
     paymentType: String!
     category: String!
     amount: Float!
     location: String
     date: String!
-    user: User!
   }
 
   type Query {
